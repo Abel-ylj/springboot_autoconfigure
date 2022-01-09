@@ -1,5 +1,6 @@
 package com.itheima.pojo;
 
+import lombok.Builder;
 import lombok.Data;
 import tk.mybatis.mapper.annotation.KeySql;
 
@@ -9,6 +10,7 @@ import java.util.Date;
 
 //在编译阶段会根据注解自动生成对应的方法；data包含get/set/hashCode/equals/toString等方法
 @Data
+@Builder
 @Table(name = "tb_user")
 public class User {
 
