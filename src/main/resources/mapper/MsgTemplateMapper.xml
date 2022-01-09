@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itheima.mapper.MsgTemplateMapper">
+  <resultMap id="BaseResultMap" type="com.itheima.dao.MsgTemplateDO">
+    <!--@mbg.generated-->
+    <!--@Table tb_msg_template-->
+    <id column="template_id" jdbcType="BIGINT" property="templateId" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="account_id" jdbcType="BIGINT" property="accountId" />
+    <result column="content" jdbcType="LONGVARCHAR" property="content" />
+    <result column="msg_id" jdbcType="BIGINT" property="msgId" />
+    <result column="gmt_send" jdbcType="TIMESTAMP" property="gmtSend" />
+    <result column="status" jdbcType="TINYINT" property="status" />
+    <result column="gmt_create" jdbcType="TIMESTAMP" property="gmtCreate" />
+  </resultMap>
+
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    template_id, `name`, account_id, content, msg_id, gmt_send, `status`, gmt_create
+  </sql>
+
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from tb_msg_template
+    where template_id = #{templateId,jdbcType=BIGINT}
+  </select>
+
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <!--@mbg.generated-->
+    delete from tb_msg_template
+    where template_id = #{templateId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.itheima.dao.MsgTemplateDO">
+    <!--@mbg.generated-->
+    insert into tb_msg_template (template_id, `name`, account_id, 
+      content, msg_id, gmt_send, 
+      `status`, gmt_create)
+    values (#{templateId,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, #{accountId,jdbcType=BIGINT}, 
+      #{content,jdbcType=LONGVARCHAR}, #{msgId,jdbcType=BIGINT}, #{gmtSend,jdbcType=TIMESTAMP}, 
+      #{status,jdbcType=TINYINT}, #{gmtCreate,jdbcType=TIMESTAMP})
+  </insert>
+
+  <insert id="insertSelective" parameterType="com.itheima.dao.MsgTemplateDO">
+    <!--@mbg.generated-->
+    insert into tb_msg_template
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="templateId != null">
+        template_id,
+      </if>
+      <if test="name != null">
+        `name`,
+      </if>
+      <if test="accountId != null">
+        account_id,
+      </if>
+      <if test="content != null">
+        content,
+      </if>
+      <if test="msgId != null">
+        msg_id,
+      </if>
+      <if test="gmtSend != null">
+        gmt_send,
+      </if>
+      <if test="status != null">
+        `status`,
+      </if>
+      <if test="gmtCreate != null">
+        gmt_create,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="templateId != null">
+        #{templateId,jdbcType=BIGINT},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="accountId != null">
+        #{accountId,jdbcType=BIGINT},
+      </if>
+      <if test="content != null">
+        #{content,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="msgId != null">
+        #{msgId,jdbcType=BIGINT},
+      </if>
+      <if test="gmtSend != null">
+        #{gmtSend,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=TINYINT},
+      </if>
+      <if test="gmtCreate != null">
+        #{gmtCreate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+
+  <update id="updateByPrimaryKeySelective" parameterType="com.itheima.dao.MsgTemplateDO">
+    <!--@mbg.generated-->
+    update tb_msg_template
+    <set>
+      <if test="name != null">
+        `name` = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="accountId != null">
+        account_id = #{accountId,jdbcType=BIGINT},
+      </if>
+      <if test="content != null">
+        content = #{content,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="msgId != null">
+        msg_id = #{msgId,jdbcType=BIGINT},
+      </if>
+      <if test="gmtSend != null">
+        gmt_send = #{gmtSend,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        `status` = #{status,jdbcType=TINYINT},
+      </if>
+      <if test="gmtCreate != null">
+        gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where template_id = #{templateId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.itheima.dao.MsgTemplateDO">
+    <!--@mbg.generated-->
+    update tb_msg_template
+    set `name` = #{name,jdbcType=VARCHAR},
+      account_id = #{accountId,jdbcType=BIGINT},
+      content = #{content,jdbcType=LONGVARCHAR},
+      msg_id = #{msgId,jdbcType=BIGINT},
+      gmt_send = #{gmtSend,jdbcType=TIMESTAMP},
+      `status` = #{status,jdbcType=TINYINT},
+      gmt_create = #{gmtCreate,jdbcType=TIMESTAMP}
+    where template_id = #{templateId,jdbcType=BIGINT}
+  </update>
+</mapper>
