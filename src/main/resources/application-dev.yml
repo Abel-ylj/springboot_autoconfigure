@@ -34,4 +34,6 @@ mybatis:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 
 itheima:
-  url: http://www.itheima.com
+  url: http://www.google.com
+itcast:
+  url: http://www.baidu.com
