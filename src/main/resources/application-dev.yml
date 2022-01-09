@@ -5,8 +5,6 @@ jdbc:
   password: wahahah
 
 spring:
-  profiles:
-    active: abc,def
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
     url: jdbc:mysql://121.4.53.107:3306/springboot_test
