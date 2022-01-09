@@ -17,6 +17,11 @@ spring:
 # tomcat端口,映射到xxxProperty属性对象的相关字段中.
 server:
   port: 80
+  freemarker:
+    template-loader-path: classpath:/templates #设定ftl文件路径
+  spring:
+    mvc:
+      static-path-pattern: /static/**  #设定静态文件路径，js,css等
 
 #日志记录级别
 logging:
