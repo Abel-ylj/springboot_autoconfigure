@@ -11,7 +11,7 @@ import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Configuration
-@EnableConfigurationProperties(JdbcProperties.class) // 该注解可以让此Conf中的bean读配置
+@EnableConfigurationProperties(JdbcProperties.class) // 该注解可以让此Conf中的bean读配置, 就需要使用spring-boot-configuration-processor
 public class MvcConfig implements WebMvcConfigurer {
 
     //注册拦截器

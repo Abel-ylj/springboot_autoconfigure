@@ -1,4 +1,18 @@
+## SpringBoot
+
+## 技术背景
+
+spring提供了IOC完成了组件的注入和依赖管理. 但是在一些常用场景下,组件的配置往往是很雷同的.比如web开发,就是需要配置SpringMVC几个组件(中央控制器,前置处理器,视图解析器,渲染器等等), 然后数据层需要配置DataSource等, 这些基础组件性的配置和业务组件配置放在同一块代码,容易出现错误. 这些重复的配置需要被自动实现.
+
+springboot就是来解决这个问题, 只要导入场景启动器(xxxStarter), 在application.yml中将组件不符合约定的配置项写一下,就可以完成基础组件的自动装配.  自动识别场景, 自动将Configuration配置类中的@Bean条件注入到容器中, 组件配置抽离出xxxProperties.class POJO, 完成和yml映射,即提供了default属性配置, 也支持覆盖.
+
+拓展性, springboot这套自动配置流程也提供了拓展, 方便第三方框架融合到spring中, 第三方框架需要提供 1. starter场景启动器(聚合依赖) 2.编写自己的XXXAutoConfiguration.class .   用户方只要注入场景启动器依赖,在yml个性化覆盖配置就可以使用了.
+
+https://blog.csdn.net/qq_21310939/article/details/107401400
+
 ## 自动配置原理
+
+> 总结: 在pom.xml中添加场景启动器xxxx.starter(描述了我想要的场景), 然后@SpringBootApplication就会自动注入相关组件到容器, 需要更改掉组件的默认配置,就写到yml中
 
 1. springboot自动启动原理--在启动类上加了SpringBootApplication注解后就自动开启了 **自动配置EnableAutoConfiguration**
 
