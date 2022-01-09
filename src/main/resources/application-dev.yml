@@ -32,3 +32,6 @@ mybatis:
   # mapper-locations: classpath:mappers/*.xml
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+itheima:
+  url: http://www.itheima.com
